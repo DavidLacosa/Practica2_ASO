@@ -1,0 +1,27 @@
+* > p{
+    font-size: 20px;
+}
+
+#centrada{
+    height: 200px;
+    width: 500px;
+    background-color: rgb(174, 174, 255);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.entrada{
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    height: 20px;
+    
+    border: 2px red solid;
+}
