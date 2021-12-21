@@ -1,0 +1,23 @@
+{
+  "name": "p2",
+  "version": "1.0.0",
+  "description": "Projecte de:\r \tMarc Espuña - marc.espuna\r \tDavid Larrosa - david.larrosa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidLacosa/Practica2_ASO.git"
+  },
+  "keywords": [
+    "P2",
+    "ASO"
+  ],
+  "author": "Marc Espuña i David Larrosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidLacosa/Practica2_ASO/issues"
+  },
+  "homepage": "https://github.com/DavidLacosa/Practica2_ASO#readme"
+}
