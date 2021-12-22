@@ -11,7 +11,7 @@ section.separat{
     height: 200px;
     width: 500px;
     background-color: rgb(213, 255, 134);
-    border: brown 2px solid;
+    border: rgb(161, 223, 46) 5px solid;
     border-radius: 10px;
 
     display: flex;
