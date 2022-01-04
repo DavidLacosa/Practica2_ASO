@@ -33,7 +33,7 @@ else
            	echo "<h1>Loged in as $username<h1/>"
            	dateTime=`echo "<h3>Today is $(date)"`
 		echo "$dateTime</h3><br/><br/>"
-		echo "<h3><a href=\"/cgi-bin/test.sh\">PROCESS MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/process_manager.sh\">PROCESS MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/\">LOG MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/\">USER MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/\">MONITORING</a><h3/><br/>"
