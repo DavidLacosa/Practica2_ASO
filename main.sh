@@ -1,49 +1,49 @@
 #!/bin/bash
 echo "Content-type: text/html"
 echo ""
-echo "<html><head><title>bash as CGI"
-echo "</title></head><body>"
-echo "<h1>Script rebre</h1>"
-dateTime=`echo -e "Today is $(date)"`
-echo -e "<h3>$dateTime</h3>"
-read dades	#Reads logging and password data
-echo "Les dades enviades: $dades <br/>"
-echo "Fixem-nos que conte tant el nom del parametre com el contingut.
-<br />Caldra manipular la cadena per a obtenir el valor.
-Emprarem awk o sed:<br />"
+echo "<html><head><title>Main page</title>"
+echo "<style>"
+echo "h1 {text-align: center;}"
+echo "h3 {text-align: center; }"
+echo "</style>"
+echo "</head><body>"
+
+read dades	#Llegeix la informacio passada amb el metode post
 username=`echo $dades | awk -F "&" '{print $1}' | awk -F "=" '{print $2}'`
-password=`echo $dades | awk -F "&" '{print $2}' | awk -F "=" '{print $2}'`
-echo -e "Username: $username"
-echo -e "<br/>Password: $password" 
-echo -e "<br/>"
+PASSWD=`echo $dades | awk -F "&" '{print $2}' | awk -F "=" '{print $2}'`
 id -u $username > /dev/null
 if [ $? -ne 0 ]
 then
-        echo "User $username is not valid"
-        echo "<br/> <a href=\"/\">Go back</a>"
+	#Username doesn't exist in the server:
+        echo "<h1>User $username doesn't exist.<h1/>"
+      	echo "<br/><h3><a href=\"/\">Go back</a><h3/>"
 else
-	echo "user $username is valid"
-	export password
+	#Username exists, checking for password...
+	export PASSWD
 	ORIGPASS=`grep -w "$username" /etc/shadow | cut -d: -f2`
+	#Hash algorithm:
         export ALGO=`echo $ORIGPASS | cut -d'$' -f2`
+        #Key needed to generate the hash output
         export SALT=`echo $ORIGPASS | cut -d'$' -f3`
-        GENPASS=$(perl -le 'print crypt("$ENV{password}","\$$ENV{ALGO}\$$ENV{SALT}\$")')
-        echo " $ALGO and $SALT and $GENPASS and $ORIGPASS "
+        #Encripted key of the password that the user 
+        GENPASS=`openssl passwd -$ALGO -salt $SALT $PASSWD`
+        #If both keys are equal the password is correct
         if [ "$GENPASS" == "$ORIGPASS" ]
         then
-                echo "Valid Username-Password Combination"
+           	echo "<h1>Loged in as $username<h1/>"
+           	dateTime=`echo "<h3>Today is $(date)"`
+		echo "$dateTime</h3><br/><br/>"
+		echo "<h3><a href=\"/cgi-bin/test.sh\">PROCESS MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/\">LOG MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/\">USER MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/\">MONITORING</a><h3/><br/>"
+		echo "<h3><a href=\"/\">NETWORK</a><h3/><br/>"
+		echo "<h3><a href=\"/\">CRON TASKS</a><h3/><br/>"
+		echo "<h3><a href=\"/\">SOUND OF SUNSHINE</a><h3/><br/>"
         else
-                echo "Invalid Username-Password Combination"
+                #The password is incorrect:
+                echo "<h1>Invalid password<h1/>"
+        	echo "<br/><h3><a href=\"/\">Go back</a><h3/>"
         fi
-IFS=$password
-sudo -k
-if sudo -lS &> /dev/null << EOF
-$password
-EOF
-then
-    echo 'Correct password.'
-else 
-    echo 'Wrong password.'
-fi
 fi
 echo "</body></html>"
