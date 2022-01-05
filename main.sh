@@ -34,12 +34,12 @@ else
            	dateTime=`echo "<h3>Today is $(date)"`
 		echo "$dateTime</h3><br/><br/>"
 		echo "<h3><a href=\"/cgi-bin/process_manager/process_manager.sh\">PROCESS MANAGER</a><h3/><br/>"
-		echo "<h3><a href=\"/\">LOG MANAGER</a><h3/><br/>"
-		echo "<h3><a href=\"/\">USER MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/log_manager/log_manager.sh\">LOG MANAGER</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/user_manager/user_manager.sh\">USER MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/\">MONITORING</a><h3/><br/>"
 		echo "<h3><a href=\"/\">NETWORK</a><h3/><br/>"
 		echo "<h3><a href=\"/\">CRON TASKS</a><h3/><br/>"
-		echo "<h3><a href=\"/\">SOUND OF SUNSHINE</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/sound_of_sunshine/sound_of_sunshine.sh\">SOUND OF SUNSHINE</a><h3/><br/>"
         else
                 #The password is incorrect:
                 echo "<h1>Invalid password<h1/>"
