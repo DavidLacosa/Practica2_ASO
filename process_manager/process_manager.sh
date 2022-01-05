@@ -9,11 +9,12 @@ echo "</style>"
 echo "</head><body>"
 echo "<h1 style=\"color:#4863A0\";> PROCESS MANAGER </h1>"
 
-echo "<h3><form action=\"/cgi-bin/main.sh\" method=\"post\">
+echo "<h3><form action=\"/cgi-bin/process_manager/pid_manager.sh\" method=\"post\">
 		<label for=\"pid\">PID: </label> 
 		<input type=\"text\" name=\"pid\" value=\"\">
 		<input type=\"submit\" value=\"Select process\">
 	</form></h3>"
+
 
 #Agafem els users, pids i programes dels diferents processos
 users=( `ps aux | awk '{print $1}'` )

@@ -8,13 +8,18 @@ echo "h3 {text-align: center; }"
 echo "</style>"
 echo "</head><body>"
 echo "<h1 style=\"color:#4863A0\";> PROCESS MANAGER </h1>"
-echo "<h3><form action=\"/cgi-bin/process_manager.sh\" method=\"post\">
-		<label for=\"pid\">PID: </label> 
-		<input type=\"text\" name=\"pid\" value=\"\">
-		<input type=\"submit\" value=\"Go back\">
-	</form></h3>"
+
+#Llegim el pid que ha seleccionat l'usuari
 read dades
 pid=`echo $dades | awk -F "=" '{print $2}'`
+
+#Opcio per sleep proccess
+echo "<h3><form action=\"/cgi-bin/process_manager/sleep_process.sh\" method=\"post\">
+	<label for=\"sleep\">Sleep time(s): </label> 
+	<input type=\"hidden\" id=\"pid\" name=\"pid\" value=\"$pid\">
+	<input type=\"text\" id=\"sleep\" name=\"sleep\" value=\"\">
+	<input type=\"submit\" value=\"Sleep process\">	
+	</form>"
 
 #Agafem les diferents stats:
 users=( `ps aux | awk '{print $1}'` )
@@ -30,7 +35,7 @@ TIMEs=(`ps aux | awk '{print $10}'`)
 programs=(`ps aux | awk '{print $11}'`)
 echo "<table style=\"border:1px solid black;margin-left:auto;margin-right:auto;\">"
 #The label of the table:
-echo "<tr>
+echo "</br><tr>
     <td>USER</td>
     <td>PID</td>
     <td>CPU</td>
@@ -63,4 +68,13 @@ do
   fi
 done
 echo "</table>"
+echo "</br><div>
+	<form action=\"/cgi-bin/process_manager/kill_process.sh\" 		method=\"post\">
+	<input type=\"hidden\" id=\"pid\" name=\"pid\" value=\"$pid\">
+	<input type=\"submit\" value=\"Kill process\">
+	</form>
+	<form action=\"/cgi-bin/process_manager/process_manager.sh\">
+	<input type=\"submit\" value=\"Go back\">
+	</form>
+	</div></h3>"
 echo "</body></html>"
