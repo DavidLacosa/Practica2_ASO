@@ -38,7 +38,7 @@ else
 		echo "<h3><a href=\"/cgi-bin/user_manager/user_manager.sh\">USER MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/\">MONITORING</a><h3/><br/>"
 		echo "<h3><a href=\"/\">NETWORK</a><h3/><br/>"
-		echo "<h3><a href=\"/\">CRON TASKS</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/cron_tasks/cron_tasks.sh\">CRON TASKS</a><h3/><br/>"
 		echo "<h3><a href=\"/cgi-bin/sound_of_sunshine/sound_of_sunshine.sh\">SOUND OF SUNSHINE</a><h3/><br/>"
         else
                 #The password is incorrect:
