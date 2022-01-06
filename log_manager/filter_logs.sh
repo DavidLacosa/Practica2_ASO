@@ -20,15 +20,19 @@ echo "<h3><form action=\"/cgi-bin/log_manager/filter_logs.sh\" method=\"post\">
 #Llegim el fixer sunshine.log (on estan guardats tots els logs relatius a la web) i els guardem en un array. Cada linia del fitxer sera un slot del array
 IFS=$'\r\n' GLOBIGNORE='*' command eval  'logs=($(cat /var/log/sunshine.log))'
 
-echo "<h2>Showing all server logs(newest to oldest)</h2>"
+read data
+filter=`echo $data | awk -F "=" '{print $2}'`
+echo "<h2>Showing logs filtering $filter (newest to oldest)</h2>"
 
 #Invertim el for loop per tal de mostrar primer els logs més nous
 for ((i=${#logs[@]}-1; i>=0; i--))
 do
 	if [[ "${logs[$i]}" == *"PROCESS MANAGER"* || "${logs[$i]}" == *"USER MANAGER"* ]]; then
 		
-  		echo "<h3>${logs[$i]}</h3>"
+		if [[ "${logs[$i]}" == *"$filter"* ]]
+		then
+  			echo "<h3>${logs[$i]}</h3>"
+  		fi
   	fi
 done	
-	
 echo 	"</body></html>"

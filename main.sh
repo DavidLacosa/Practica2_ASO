@@ -36,7 +36,7 @@ else
 		echo "<h3><a href=\"/cgi-bin/process_manager/process_manager.sh\">PROCESS MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/cgi-bin/log_manager/log_manager.sh\">LOG MANAGER</a><h3/><br/>"
 		echo "<h3><a href=\"/cgi-bin/user_manager/user_manager.sh\">USER MANAGER</a><h3/><br/>"
-		echo "<h3><a href=\"/cgi-bin/monotoritzacio/monotoritzacio.sh\">MONITORING</a><h3/><br/>"
+		echo "<h3><a href=\"/cgi-bin/monitoritzacio/monitoritzacio.sh\">MONITORING</a><h3/><br/>"
 		echo "<h3><a href=\"/\">NETWORK</a><h3/><br/>"
 		echo "<h3><a href=\"/cgi-bin/cron_tasks/cron_tasks.sh\">CRON TASKS</a><h3/><br/>"
 		echo "<h3><a href=\"/cgi-bin/sound_of_sunshine/sound_of_sunshine.sh\">SOUND OF SUNSHINE</a><h3/><br/>"

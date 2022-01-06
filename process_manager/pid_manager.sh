@@ -78,3 +78,6 @@ echo "</br><div>
 	</form>
 	</div></h3>"
 echo "</body></html>"
+#Logging action:
+logger -p user.notice "[PROCESS MANAGER]:User selected process $pid (pid)"
+

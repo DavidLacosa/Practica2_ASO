@@ -16,8 +16,10 @@ error=`sudo userdel -r "$username"`
 if [[ $? != 0 ]]; then  
 	echo "<h2> User $username cound not be removed</h2>"
 	echo "<h2> ERROR MESSAGE: $error</h2>"
+	logger -p user.notice "[USER MANAGER]:User failed to remove user $username"
 else 
 	echo "<h2> User $username removed successfully</h2>"
+	logger -p user.notice "[USER MANAGER]:User removed user $username"
 fi
 echo    "</form>
 	<form action=\"/cgi-bin/user_manager/user_manager.sh\">
