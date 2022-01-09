@@ -18,6 +18,7 @@ echo "</br><h2><div>
 echo "	<h3> Redirecting back..."
 echo "<meta http-equiv=\"refresh\" content=\"5; URL=/cgi-bin/process_manager/process_manager.sh\" />"
 echo "</body></html>"
+logger -p user.notice "[PROCESS MANAGER]:User killed process $1"
 kill -9 "$pid"
 #We execute a script to make the pid sleep a number of seconds
 

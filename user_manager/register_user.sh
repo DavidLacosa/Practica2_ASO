@@ -20,8 +20,10 @@ error=`sudo useradd -m -p "$crypted" "$username"`
 if [[ $? != 0 ]]; then  
 	echo "<h2> User $username cound not be added</h2>"
 	echo "<h2> ERROR MESSAGE: $error"
+	logger -p user.notice "[USER MANAGER]:User failed to create user $username"
 else 
 	echo "<h2> User $username added successfully</h2>"
+	logger -p user.notice "[USER MANAGER]:User successfully created user $username"
 fi
 echo    "</form>
 	<form action=\"/cgi-bin/user_manager/user_manager.sh\">
