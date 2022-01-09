@@ -33,3 +33,5 @@ songs=(`ls /usr/lib/cgi-bin/playlist/Desktop/*.mp3 | awk -F "/" '{print $7}'`)
 #Ens redirigim al menu de sound
 echo "<meta http-equiv=\"refresh\" content=\"0; URL=/cgi-bin/sound_of_sunshine/sound_of_sunshine.sh\" />"
 echo "</body></html>"
+
+logger -p user.notice "[SOUND]:User replayed song"

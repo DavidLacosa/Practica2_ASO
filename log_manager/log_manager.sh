@@ -25,7 +25,7 @@ echo "<h2>Showing all server logs(newest to oldest)</h2>"
 #Invertim el for loop per tal de mostrar primer els logs més nous
 for ((i=${#logs[@]}-1; i>=0; i--))
 do
-	if [[ "${logs[$i]}" == *"PROCESS MANAGER"* || "${logs[$i]}" == *"USER MANAGER"* ]]; then
+	if [[ "${logs[$i]}" == *"PROCESS MANAGER"* || "${logs[$i]}" == *"USER MANAGER"* || "${logs[$i]}" == *"SONG"* ]]; then
 		
   		echo "<h3>${logs[$i]}</h3>"
   	fi

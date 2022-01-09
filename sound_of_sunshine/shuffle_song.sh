@@ -26,3 +26,5 @@ indexShuffleSong=$(( $RANDOM % ${#songs[@]} ))
 #redirigim al menu de song
 echo "<meta http-equiv=\"refresh\" content=\"0; URL=/cgi-bin/sound_of_sunshine/sound_of_sunshine.sh\" />"
 echo "</body></html>"
+
+logger -p user.notice "[SOUND]:User shuffled song"
